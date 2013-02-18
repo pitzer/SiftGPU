@@ -9,7 +9,7 @@ siftgpu_enable_opencl = 0
 # enable CUDA-based SiftGPU?
 simple_find_cuda = $(shell locate libcudart.so)
 ifneq ($(simple_find_cuda), )
- 	siftgpu_enable_cuda = 1
+ 	siftgpu_enable_cuda = 0
 else
 	siftgpu_enable_cuda = 0
 endif
@@ -21,10 +21,10 @@ CUDA_INSTALL_PATH = /usr/local/cuda
 #--------------------------------------------------------------------------------------------------
 # enable SSE optimization for GL-based implementations
 siftgpu_enable_sse = 1
-siftgpu_sse_options = -march=native -mfpmath=sse
+siftgpu_sse_options = -march=core2 -mfpmath=sse
 #--------------------------------------------------------------------------------------------------
 # openGL context creation.  1 for glut, 0 for xlib
-siftgpu_prefer_glut = 0
+siftgpu_prefer_glut = 1
 #whether remove dependency on DevIL (1 to remove, the output libsiftgpu.so still works for VisualSFM)
 siftgpu_disable_devil = 0
 #------------------------------------------------------------------------------------------------
@@ -55,7 +55,7 @@ SRC_SIFTGPU = src/SiftGPU
 SRC_DRIVER = src/TestWin
 SRC_SERVER = src/ServerSiftGPU
 CC = g++
-CFLAGS = -I$(INC_DIR) -fPIC -L/usr/lib64 -L/usr/lib -L./bin -L./lib -Wall -Wno-deprecated -pthread  
+CFLAGS = -I$(INC_DIR) -fPIC  -L/usr/lib -L./bin -L./lib -Wall -Wno-deprecated -pthread  
 
 #simple hack to repalce the native flat on OSX because gcc version is low
 ifneq ($(DARWIN),) 
@@ -87,7 +87,7 @@ _HEADER_SIFTGPU_LIB = SiftGPU.h
 ifneq ($(DARWIN),) 
 #librarys for SiftGPU
 LIBS_SIFTGPU = -lGLEW -framework GLUT -framework OpenGL 
-CFLAGS +=  -L/opt/local/lib -L/usr/local/lib 
+CFLAGS +=  -L/Users/prb2pal/Development/Resources/lib  
 else
 #librarys for SiftGPU
 LIBS_SIFTGPU = -lGLEW -lglut -lGL -lX11
