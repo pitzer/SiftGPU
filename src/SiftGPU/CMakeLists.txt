@@ -43,3 +43,6 @@ ADD_LIBRARY(siftgpu SHARED FrameBufferObject.cpp GlobalUtil.cpp GLTexImage.cpp P
             ProgramGPU.cpp ShaderMan.cpp SiftGPU.cpp SiftPyramid.cpp PyramidGL.cpp SiftMatch.cpp)
 
 TARGET_LINK_LIBRARIES(siftgpu ${LIBS_SIFTGPU} ${GLEW_LIBRARIES} ${GLUT_LIBRARIES} ${OPENGL_LIBRARIES} )
+
+INSTALL(FILES SiftGPU.h DESTINATION include)
+INSTALL(TARGETS siftgpu DESTINATION lib )
