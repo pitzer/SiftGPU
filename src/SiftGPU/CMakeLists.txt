@@ -39,7 +39,7 @@ ENDIF(SIFTGPU_DISABLE_DEVIL)
 include_directories( ${GLEW_INCLUDE_DIRS} )
 
 
-ADD_LIBRARY(siftgpu SHARED FrameBufferObject.cpp GlobalUtil.cpp GLTexImage.cpp ProgramGLSL.cpp 
+ADD_LIBRARY(siftgpu STATIC FrameBufferObject.cpp GlobalUtil.cpp GLTexImage.cpp ProgramGLSL.cpp 
             ProgramGPU.cpp ShaderMan.cpp SiftGPU.cpp SiftPyramid.cpp PyramidGL.cpp SiftMatch.cpp)
 
 TARGET_LINK_LIBRARIES(siftgpu ${LIBS_SIFTGPU} ${GLEW_LIBRARIES} ${GLUT_LIBRARIES} ${OPENGL_LIBRARIES} )
