@@ -1,6 +1,6 @@
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
-find_package(Glew REQUIRED)
+find_package(Glew)
 
 SET(SIFTGPU_ENABLE_SERVER FALSE)
 SET(SIFTGPU_ENABLE_OPENCL FALSE)
@@ -36,8 +36,10 @@ ELSE(SIFTGPU_DISABLE_DEVIL)
   SET(LIBS_SIFTGPU ${LIBS_SIFTGPU} IL )
 ENDIF(SIFTGPU_DISABLE_DEVIL)
 
-include_directories( ${GLEW_INCLUDE_DIRS} )
-
+if (GLEW_FOUND)
+	include_directories( ${GLEW_INCLUDE_DIRS} )
+	SET (GLEW_LIBRARIES GLEW)
+endif (GLEW_FOUND)
 
 ADD_LIBRARY(siftgpu STATIC FrameBufferObject.cpp GlobalUtil.cpp GLTexImage.cpp ProgramGLSL.cpp 
             ProgramGPU.cpp ShaderMan.cpp SiftGPU.cpp SiftPyramid.cpp PyramidGL.cpp SiftMatch.cpp)
