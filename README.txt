@@ -55,4 +55,24 @@ University of North Carolina at Chapel Hill
 
 
 	Check /doc/manual.pdf for help on the viewer. 
+	
+4. Prerequisites
+```
+ 	sudo apt-get install libgtk2.0-dev 
+ 	sudo apt-get install libglew1.6-dev 
+ 	sudo apt-get install libglew1.6 
+ 	sudo apt-get install libdevil-dev 
+ 	sudo apt-get install libboost-all-dev 
+ 	sudo apt-get install libatlas-cpp-0.6-dev 
+ 	sudo apt-get install libatlas-dev 
+ 	sudo apt-get install imagemagick 
+ 	sudo apt-get install libatlas3gf-base 
+ 	sudo apt-get install libcminpack-dev 
+ 	sudo apt-get install libgfortran3 
+ 	sudo apt-get install libmetis-edf-dev 
+ 	sudo apt-get install libparmetis-dev 
+ 	sudo apt-get install freeglut3-dev 
+ 	sudo apt-get install libgsl0-dev
+	sudo apt-get install glew-utils:i386
+ ```
 
