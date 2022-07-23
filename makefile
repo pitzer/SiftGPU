@@ -7,9 +7,10 @@ siftgpu_enable_server = 0
 siftgpu_enable_opencl = 0
 #------------------------------------------------------------------------------------------------
 # enable CUDA-based SiftGPU?
-simple_find_cuda = $(shell locate libcudart.so)
-ifneq ($(simple_find_cuda), )
- 	siftgpu_enable_cuda = 0
+simple_find_cuda := $(shell type nvcc>/dev/null 2>&1; echo $$?)
+$(info ----- value $(simple_find_cuda) -----)
+ifeq ($(simple_find_cuda), 0)
+ 	siftgpu_enable_cuda = 1
 else
 	siftgpu_enable_cuda = 0
 endif
