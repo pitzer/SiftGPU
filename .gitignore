@@ -1,0 +1,8 @@
+build
+
+bin
+
+CMakeFiles
+CMakeCache.txt
+
+demos

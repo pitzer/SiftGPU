@@ -1,6 +1,6 @@
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
-find_package(Glew)
+find_package(GLEW REQUIRED)
 
 SET(SIFTGPU_ENABLE_SERVER FALSE)
 SET(SIFTGPU_ENABLE_OPENCL FALSE)
